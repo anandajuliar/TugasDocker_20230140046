@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Input</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f3f6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h3 {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .radio-group {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .back {
+            display: block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h3>Form Input Mahasiswa</h3>
+
+    <form action="/save" method="post">
+
+        <label>Nama:</label>
+        <input type="text" name="nama" required>
+
+        <label>NIM:</label>
+        <input type="text" name="nim" required>
+
+        <label>Jenis Kelamin:</label>
+        <div class="radio-group">
+            <input type="radio" name="jenisKelamin" value="Laki-laki"> Laki-laki <br>
+            <input type="radio" name="jenisKelamin" value="Perempuan"> Perempuan
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <a href="/home" class="back">Kembali ke Home</a>
+</div>
+
+</body>
+</html>
