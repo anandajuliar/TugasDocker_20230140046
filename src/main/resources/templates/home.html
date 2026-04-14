@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f3f6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .logout {
+            margin-top: 15px;
+            display: inline-block;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h3>MY Website 20230140046</h3>
+    <p>Selamat datang di aplikasi!</p>
+
+    <a href="/form" class="btn">+ Input Data Mahasiswa</a>
+
+    <h4>Data Mahasiswa</h4>
+
+    <table>
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>NIM</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <!-- kalau data kosong -->
+        <tr th:if="${#lists.isEmpty(data)}">
+            <td colspan="3">Belum ada data</td>
+        </tr>
+
+        <!-- tampil data -->
+        <tr th:each="user, iterStat : ${data}">
+            <td th:text="${iterStat.count}"></td>
+            <td th:text="${user.nama}"></td>
+            <td th:text="${user.nim}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/" class="logout">Logout</a>
+</div>
+
+</body>
+</html>
